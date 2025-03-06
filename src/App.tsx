@@ -28,7 +28,7 @@ function App() {
 
   return (
     <div className="flex justify-center items-center h-screen bg-gray-100">
-      <div className="bg-white p-6 rounded-lg shadow-lg w-lg">
+      <div className="bg-white p-6 rounded-lg lg:shadow-lg w-lg sm:shadow-none">
         <h1 className="text-3xl text-center font-semibold text-blue-600 mb-4">COSITEC</h1>
 
         <div className="mb-4">
