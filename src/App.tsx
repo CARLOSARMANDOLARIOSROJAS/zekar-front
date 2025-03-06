@@ -6,6 +6,7 @@ function App() {
   const [prompt, setPrompt] = useState('');
   const [respuesta, setRespuesta] = useState('');
   const [loading, setLoading] = useState(false);
+  const apiUrl = import.meta.env.VITE_API_URL;
 
   const handleSubmit = async () => {
 
@@ -16,7 +17,7 @@ function App() {
 
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:3000/api/preguntar", { pregunta: prompt });
+      const response = await axios.post(`${apiUrl}/api/preguntar`, { pregunta: prompt });
       setRespuesta(response.data.respuesta);
       setLoading(false);
     } catch (error) {
@@ -48,13 +49,13 @@ function App() {
           Obtener Respuesta
         </button>
 
-     
-          <div className="mt-6 p-4 bg-gray-100 border rounded-md">
-            <h2 className="font-semibold text-gray-700">Respuesta:</h2>
-            <p className="text-gray-600">{
-              loading ? "Cargando respuesta..." : respuesta || "Esperando pregunta..."
-            }</p>
-          </div>
+
+        <div className="mt-6 p-4 bg-gray-100 border rounded-md">
+          <h2 className="font-semibold text-gray-700">Respuesta:</h2>
+          <p className="text-gray-600">{
+            loading ? "Cargando respuesta..." : respuesta || "Esperando pregunta..."
+          }</p>
+        </div>
       </div>
     </div>
   );
